@@ -1,35 +1,39 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main (){
-     int n ;
-     cin>>n;
+int main() {
+    int n;
+    cin >> n;
 
-     string Team1,Team2,name;
+    string team1, team2, name;
+    int count1 = 0, count2 = 0;
+    bool secondTeamFound = false;
 
-     int count1=0;
-     int count2=0;
+    
+    cin >> team1;
+    count1 = 1;
 
-     for(int i=0;i<n;i++){
-        cin>>Team1;
+    
+    for (int i = 1; i < n; i++) {
+        cin >> name;
 
-        if(i==0){
-            Team2=Team1;
+        if (name == team1) {
             count1++;
-        }
-        else if(Team1==Team2){
-           count1++;
-        }
-        else{
+        } 
+        else {
+            if (!secondTeamFound) {
+                team2 = name;          
+                secondTeamFound = true;
+            }
             count2++;
         }
-     }
-      if (count1 > count2)
-        cout << Team2;
+    }
+
+    
+    if (count1 > count2)
+        cout << team1;
     else
-        cout << Team1;   
+        cout << team2;
 
     return 0;
-
-
 }
